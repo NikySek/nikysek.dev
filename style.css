@@ -509,6 +509,8 @@ code {
     padding: 1.1rem 1.5rem;
     flex: 1 1 230px;
     transition: border-color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+    font: inherit;
 }
 
 .contact-card:hover {
@@ -541,6 +543,27 @@ code {
 
 .contact-value {
     font-size: 0.94rem;
+}
+
+.copy-notification {
+    position: fixed;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 500;
+    z-index: 1000;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: top 0.3s ease;
+}
+
+.copy-notification.show {
+    top: 20px;
 }
 
 .footer {

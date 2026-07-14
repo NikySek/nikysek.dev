@@ -68,7 +68,7 @@
             <div class="section-inner">
                 <p class="eyebrow reveal">// loaded modules</p>
                 <h2 class="section-title reveal">What's under the hood</h2>
-                <p class="about-bio reveal">I build the systems that keep Discord communities running smoothly — ticket queues that route to the right person, verification flows that keep bad actors out, and audit trails that show exactly what happened and when. Real deployments, real members, real edge cases.</p>
+                <p class="about-bio reveal">I build the systems that keep Discord communities running smoothly — ticket queues that route to the right person, verification flows that keep bad actors out, and logging that actually tells you what happened.</p>
                 <ul class="stack-grid reveal">
                     <li>Python</li>
                     <li>discord.py</li>
@@ -94,7 +94,7 @@
                         <div class="project-info">
                             <span class="project-tag">Support system</span>
                             <h3>Ticket &amp; Moderation Bot</h3>
-                            <p>A structured support system for a game-server hosting community. Members open tickets through category buttons — server issues, upgrades, reports, business inquiries — that launch modal forms instead of vague DMs, so staff get the server IP, a description, and a timeline right away. A permission-gated <code>/clear</code> command and full audit logging of channel and role changes round it out.</p>
+                            <p>A structured support system for a game-server hosting community. Members open tickets through category buttons — server issues, upgrades, reports, business inquiries. The bot routes them to appropriate staff channels with context.</p>
                             <ul class="tech-tags">
                                 <li>Python</li>
                                 <li>discord.py</li>
@@ -103,7 +103,7 @@
                             </ul>
                         </div>
                         <div class="project-visual">
-                            <img src="./14720261026.png" alt="Ticket support UI" style="max-width:100%; border-radius:8px; box-shadow: 0 8px 24px rgba(0,0,0,0.0);">
+                            <img src="14720261026.png?v=1" alt="Ticket support UI" style="max-width:100%; border-radius:8px; box-shadow: 0 8px 24px rgba(0,0,0,0.0);">
                         </div>
                     </article>
 
@@ -111,7 +111,7 @@
                         <div class="project-info">
                             <span class="project-tag">Web + OAuth2</span>
                             <h3>Discord Verification Portal</h3>
-                            <p>A two-step verification flow: members request a one-time code from the bot, then confirm their identity on a branded web page by logging in with Discord OAuth2. On success, the bot grants a role automatically and posts a log entry to a Discord channel via webhook. IP addresses are tracked to block repeat verifications from the same device, cutting down on ban evasion through alt accounts.</p>
+                            <p>A two-step verification flow: members request a one-time code from the bot, then confirm their identity on a branded web page by logging in with Discord OAuth2. On success, they get verified role.</p>
                             <ul class="tech-tags">
                                 <li>Python</li>
                                 <li>Flask</li>
@@ -120,7 +120,7 @@
                             </ul>
                         </div>
                         <div class="project-visual">
-                            <img src="./14720261027.png" alt="Verification UI" style="max-width:100%; border-radius:8px; box-shadow: 0 8px 24px rgba(0,0,0,0.0);">
+                            <img src="14720261027.png?v=1" alt="Verification UI" style="max-width:100%; border-radius:8px; box-shadow: 0 8px 24px rgba(0,0,0,0.0);">
                         </div>
                     </article>
 
@@ -128,7 +128,7 @@
                         <div class="project-info">
                             <span class="project-tag">Architecture</span>
                             <h3>Modular Bot Framework</h3>
-                            <p>A rebuild of the verification system on discord.py's cogs pattern, where every feature loads as its own module at startup. Added a welcome flow — auto-role plus a branded embed for new members — and an audit-logging module covering more than fifteen distinct server events: joins, leaves, bans, timeouts, message edits and deletes, reactions, voice activity, and channel or role changes.</p>
+                            <p>A rebuild of the verification system on discord.py's cogs pattern, where every feature loads as its own module at startup. Added a welcome flow — auto-role plus a greeting message in a dedicated channel.</p>
                             <ul class="tech-tags">
                                 <li>discord.py Cogs</li>
                                 <li>Event-driven design</li>
@@ -156,7 +156,7 @@
                 <h2 class="section-title reveal">Let's build something</h2>
                 <p class="contact-sub reveal">Have a community that needs a custom bot, a verification flow, or better moderation tooling? I'm around.</p>
                 <div class="contact-links reveal">
-                    <a href="mailto:you@example.com" class="contact-card">
+                    <a href="mailto:me@nikysek.dev" class="contact-card">
                         <span class="contact-icon">@</span>
                         <span class="contact-text">
                             <span class="contact-label">Email</span>
@@ -170,13 +170,13 @@
                             <span class="contact-value">github.com/nikysek</span>
                         </span>
                     </a>
-                    <a href="#" class="contact-card">
-                        <span class="contact-icon">#</span>
+                    <button class="contact-card" id="discord-copy">
+                        <span class="contact-icon">🎮</span>
                         <span class="contact-text">
                             <span class="contact-label">Discord</span>
                             <span class="contact-value">@nikysek</span>
                         </span>
-                    </a>
+                    </button>
                 </div>
             </div>
         </section>
@@ -186,6 +186,9 @@
     <footer class="footer">
         <p>// nikysek.dev — built 2026</p>
     </footer>
+
+    <!-- Notification toast -->
+    <div id="copy-notification" class="copy-notification">Copied to clipboard!</div>
 
     <script src="script.js"></script>
 </body>

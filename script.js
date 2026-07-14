@@ -81,4 +81,29 @@ document.addEventListener('DOMContentLoaded', function() {
         }, { threshold: 0.15 });
         revealEls.forEach(function(el) { io.observe(el); });
     }
+
+    // Discord copy to clipboard functionality
+    var discordBtn = document.getElementById('discord-copy');
+    var notification = document.getElementById('copy-notification');
+
+    if (discordBtn && notification) {
+        discordBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            
+            var discordId = 'nikysek';
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(discordId).then(function() {
+                // Show notification
+                notification.classList.add('show');
+                
+                // Hide after 2 seconds
+                setTimeout(function() {
+                    notification.classList.remove('show');
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Failed to copy:', err);
+            });
+        });
+    }
 });
