@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#0c0c0f">
+    <meta name="description" content="nikysek — Discord bot & backend developer. Ticket systems, OAuth2 verification, and audit logging built for real, active Discord communities.">
+    <title>nikysek — Discord Bot & Backend Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="nav">
+        <div class="nav-inner">
+            <a href="#" class="nav-logo">
+                nikysek<span class="accent">.dev</span>
+            </a>
+            <nav class="nav-links">
+                <a href="#work">Work</a>
+                <a href="#stack">Stack</a>
+                <a href="#contact" class="nav-cta">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+
+        <section class="hero">
+            <div class="hero-inner">
+                <div class="terminal">
+                    <div class="terminal-bar">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="terminal-title">nikysek@dev:~</span>
+                    </div>
+                    <div class="terminal-body" id="terminal-body"></div>
+                </div>
+
+                <div>
+                    <h1 class="hero-title hero-reveal">I build the backend Discord communities run on.</h1>
+                    <p class="hero-sub hero-reveal">Ticket systems, OAuth2 verification, and audit logs that hold up in real, active servers — not demos.</p>
+                </div>
+
+                <div class="hero-stats hero-reveal">
+                    <div class="stat">
+                        <span class="stat-num">3</span>
+                        <span class="stat-label">Bots shipped</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">15+</span>
+                        <span class="stat-label">Events audited</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-num">OAuth2</span>
+                        <span class="stat-label">Verification flow</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="about" id="stack">
+            <div class="section-inner">
+                <p class="eyebrow reveal">// loaded modules</p>
+                <h2 class="section-title reveal">What's under the hood</h2>
+                <p class="about-bio reveal">I build the systems that keep Discord communities running smoothly — ticket queues that route to the right person, verification flows that keep bad actors out, and audit trails that show exactly what happened and when. Real deployments, real members, real edge cases.</p>
+                <ul class="stack-grid reveal">
+                    <li>Python</li>
+                    <li>discord.py</li>
+                    <li>Flask</li>
+                    <li>Discord OAuth2</li>
+                    <li>Slash Commands</li>
+                    <li>Modals &amp; Views</li>
+                    <li>Cogs Architecture</li>
+                    <li>Webhooks</li>
+                    <li>JSON Persistence</li>
+                    <li>Event-driven Logging</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="work" id="work">
+            <div class="section-inner">
+                <p class="eyebrow reveal">// work</p>
+                <h2 class="section-title reveal">Shipped, not just scripted</h2>
+
+                <div class="projects">
+                    <article class="project reveal">
+                        <div class="project-info">
+                            <span class="project-tag">Support system</span>
+                            <h3>Ticket &amp; Moderation Bot</h3>
+                            <p>A structured support system for a game-server hosting community. Members open tickets through category buttons — server issues, upgrades, reports, business inquiries — that launch modal forms instead of vague DMs, so staff get the server IP, a description, and a timeline right away. A permission-gated <code>/clear</code> command and full audit logging of channel and role changes round it out.</p>
+                            <ul class="tech-tags">
+                                <li>Python</li>
+                                <li>discord.py</li>
+                                <li>Slash Commands</li>
+                                <li>Modals</li>
+                            </ul>
+                        </div>
+                        <div class="project-visual">
+                            <img src="14720261026.png" alt="Ticket support UI" style="max-width:100%; border-radius:8px; box-shadow: 0 8px 24px rgba(0,0,0,0.0);">
+                        </div>
+                    </article>
+
+                    <article class="project reverse reveal">
+                        <div class="project-info">
+                            <span class="project-tag">Web + OAuth2</span>
+                            <h3>Discord Verification Portal</h3>
+                            <p>A two-step verification flow: members request a one-time code from the bot, then confirm their identity on a branded web page by logging in with Discord OAuth2. On success, the bot grants a role automatically and posts a log entry to a Discord channel via webhook. IP addresses are tracked to block repeat verifications from the same device, cutting down on ban evasion through alt accounts.</p>
+                            <ul class="tech-tags">
+                                <li>Python</li>
+                                <li>Flask</li>
+                                <li>Discord OAuth2</li>
+                                <li>Sessions</li>
+                            </ul>
+                        </div>
+                        <div class="project-visual">
+                            <img src="14720261027.png" alt="Verification UI" style="max-width:100%; border-radius:8px; box-shadow: 0 8px 24px rgba(0,0,0,0.0);">
+                        </div>
+                    </article>
+
+                    <article class="project reveal">
+                        <div class="project-info">
+                            <span class="project-tag">Architecture</span>
+                            <h3>Modular Bot Framework</h3>
+                            <p>A rebuild of the verification system on discord.py's cogs pattern, where every feature loads as its own module at startup. Added a welcome flow — auto-role plus a branded embed for new members — and an audit-logging module covering more than fifteen distinct server events: joins, leaves, bans, timeouts, message edits and deletes, reactions, voice activity, and channel or role changes.</p>
+                            <ul class="tech-tags">
+                                <li>discord.py Cogs</li>
+                                <li>Event-driven design</li>
+                                <li>Flask</li>
+                            </ul>
+                        </div>
+                        <div class="project-visual">
+                            <div class="mock-terminal">
+                                <p><span class="ts">10:42:01</span><span class="ok">[OK]</span> loaded module: verify</p>
+                                <p><span class="ts">10:42:01</span><span class="ok">[OK]</span> loaded module: welcome</p>
+                                <p><span class="ts">10:42:01</span><span class="ok">[OK]</span> loaded module: audit</p>
+                                <p><span class="ts">10:43:15</span> [IN] member joined</p>
+                                <p><span class="ts">10:44:02</span> [UP] role updated</p>
+                                <p><span class="ts">10:45:18</span><span class="danger-ic">[RM]</span> message deleted</p>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="section-inner">
+                <p class="eyebrow reveal">// connect</p>
+                <h2 class="section-title reveal">Let's build something</h2>
+                <p class="contact-sub reveal">Have a community that needs a custom bot, a verification flow, or better moderation tooling? I'm around.</p>
+                <div class="contact-links reveal">
+                    <a href="mailto:you@example.com" class="contact-card">
+                        <span class="contact-icon">@</span>
+                        <span class="contact-text">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-value">you@example.com</span>
+                        </span>
+                    </a>
+                    <a href="https://github.com/nikysek" class="contact-card">
+                        <span class="contact-icon">&lt;/&gt;</span>
+                        <span class="contact-text">
+                            <span class="contact-label">GitHub</span>
+                            <span class="contact-value">github.com/nikysek</span>
+                        </span>
+                    </a>
+                    <a href="#" class="contact-card">
+                        <span class="contact-icon">#</span>
+                        <span class="contact-text">
+                            <span class="contact-label">Discord</span>
+                            <span class="contact-value">@nikysek</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>// nikysek.dev — built 2026</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
