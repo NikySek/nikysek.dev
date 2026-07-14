@@ -545,6 +545,10 @@ code {
     font-size: 0.94rem;
 }
 
+.discord-value {
+    color: var(--accent-text);
+}
+
 .copy-notification {
     position: fixed;
     top: -80px;
