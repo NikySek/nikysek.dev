@@ -546,7 +546,7 @@ code {
 }
 
 .discord-value {
-    color: var(--accent-text);
+    color: #e8e8ed;
 }
 
 .copy-notification {
