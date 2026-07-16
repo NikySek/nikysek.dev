@@ -1,16 +1,16 @@
 :root {
-    --bg-base: #0c0c0f;
-    --bg-surface: #16161e;
-    --bg-elevated: #1e1e28;
-    --border: #2a2a36;
-    --accent: #868686;
-    --accent-text: #19c7f3;
-    --warm: #8d8d8d;
-    --text-primary: #e8e8ed;
-    --text-muted: #898995;
-    --text-dim: #6e6e7e;
-    --online: #0db8ec;
-    --danger: #cc5555;
+    --bg-base: #000000;
+    --bg-surface: #090909;
+    --bg-elevated: #222222;
+    --border: #242424;
+    --accent: #333333;
+    --accent-text: #FFFFFF;
+    --text-primary: #FFFFFF;
+    --text-muted: #888888;
+    --text-dim: #555555;
+    --danger: #FF5B5B;
+    --online: #FFFFFF;
+    --warm: #888888;
     --font-display: 'Space Grotesk', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
     --font-body: 'IBM Plex Sans', sans-serif;
@@ -88,7 +88,7 @@ code {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(12, 12, 15, 0.8);
+    background: rgba(0, 0, 0, 0.8);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--border);
@@ -184,7 +184,7 @@ code {
 }
 
 .terminal-bar .dot.red {
-    background: #cc5555;
+    background: var(--danger);
 }
 
 .terminal-bar .dot.yellow {
@@ -225,11 +225,11 @@ code {
 }
 
 .terminal-line.ok {
-    color: var(--online);
+    color: var(--accent-text);
 }
 
 .terminal-line.online {
-    color: var(--online);
+    color: var(--accent-text);
     font-weight: 600;
 }
 
@@ -323,7 +323,7 @@ code {
 
 .eyebrow {
     font-family: var(--font-mono);
-    color: var(--accent-text);
+    color: var(--text-muted);
     font-size: 0.78rem;
     letter-spacing: 0.14em;
     text-transform: uppercase;
@@ -475,7 +475,7 @@ code {
 }
 
 .mock-terminal .ok {
-    color: var(--online);
+    color: var(--accent-text);
 }
 
 .mock-terminal .danger-ic {
@@ -511,6 +511,7 @@ code {
     transition: border-color 0.2s ease, transform 0.2s ease;
     cursor: pointer;
     font: inherit;
+    color: var(--text-primary);
 }
 
 .contact-card:hover {
@@ -546,7 +547,7 @@ code {
 }
 
 .discord-value {
-    color: #e8e8ed;
+    color: var(--text-primary);
 }
 
 .copy-notification {
@@ -554,8 +555,8 @@ code {
     top: -80px;
     left: 50%;
     transform: translateX(-50%);
-    background: rgba(30, 30, 40, 0.9);
-    color: #c0c0c0;
+    background: var(--bg-elevated);
+    color: var(--text-primary);
     padding: 0.5rem 1rem;
     border-radius: 6px;
     border: 1px solid var(--border);
