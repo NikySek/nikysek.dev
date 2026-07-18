@@ -11,6 +11,7 @@
     --danger: #FF5B5B;
     --online: #FFFFFF;
     --warm: #888888;
+    --bgs-rgb: 255, 255, 255;
     --font-display: 'Space Grotesk', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
     --font-body: 'IBM Plex Sans', sans-serif;
@@ -82,6 +83,75 @@ code {
 
 .skip-link:focus {
     left: 0;
+}
+
+.bg-shapes {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    display: none;
+    pointer-events: none;
+}
+
+.bg-shapes-svg {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: calc((100% - 1120px) / 2);
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0, black 120px, black calc(100% - 120px), transparent 100%);
+    mask-image: linear-gradient(to bottom, transparent 0, black 120px, black calc(100% - 120px), transparent 100%);
+}
+
+.bg-shapes-svg--left {
+    left: 0;
+}
+
+.bg-shapes-svg--right {
+    right: 0;
+}
+
+.bg-shapes-svg .bgs-fill {
+    fill: rgba(var(--bgs-rgb), 0.5);
+}
+
+.bg-shapes-svg .bgs-stroke {
+    fill: none;
+    stroke: rgba(var(--bgs-rgb), 0.35);
+    stroke-width: 7;
+}
+
+.bg-shapes-svg .bgs-panel {
+    fill: rgba(var(--bgs-rgb), 0.05);
+}
+
+.bg-shapes-svg .bgs-cell-inner {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.bg-shapes-svg .bgs-cell-inner.bgs-visible {
+    opacity: 1;
+}
+
+/* main/footer need to be "positioned" so they reliably paint above the
+   fixed .bg-shapes layer instead of relying on plain DOM order */
+main,
+.footer {
+    position: relative;
+    z-index: 1;
+}
+
+@media (min-width: 1300px) {
+    .bg-shapes {
+        display: block;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .bg-shapes {
+        display: none;
+    }
 }
 
 .nav {
@@ -319,6 +389,7 @@ code {
     max-width: 1120px;
     margin: 0 auto;
     padding: 6rem 1.5rem;
+    border-top: 1px solid var(--border);
 }
 
 .eyebrow {
@@ -335,10 +406,6 @@ code {
     font-weight: 600;
     letter-spacing: -0.01em;
     margin-bottom: 1.7rem;
-}
-
-.about {
-    border-top: 1px solid var(--border);
 }
 
 .about-bio {
@@ -368,10 +435,6 @@ code {
 .stack-grid li:hover {
     border-color: var(--accent);
     transform: translateY(-2px);
-}
-
-.work {
-    border-top: 1px solid var(--border);
 }
 
 .projects {
@@ -482,10 +545,6 @@ code {
     color: var(--danger);
 }
 
-.contact {
-    border-top: 1px solid var(--border);
-}
-
 .contact-sub {
     color: var(--text-muted);
     font-size: 1.05rem;
@@ -573,6 +632,8 @@ code {
 }
 
 .footer {
+    max-width: 1120px;
+    margin: 0 auto;
     text-align: center;
     padding: 2.6rem 1.5rem 3.2rem;
     font-family: var(--font-mono);
