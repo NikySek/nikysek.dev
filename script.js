@@ -82,7 +82,6 @@ document.addEventListener('DOMContentLoaded', function() {
         revealEls.forEach(function(el) { io.observe(el); });
     }
 
-    // Discord copy to clipboard functionality
     var discordBtn = document.getElementById('discord-copy');
     var notification = document.getElementById('copy-notification');
 
@@ -92,12 +91,9 @@ document.addEventListener('DOMContentLoaded', function() {
             
             var discordId = 'nikysek';
             
-            // Copy to clipboard
             navigator.clipboard.writeText(discordId).then(function() {
-                // Show notification
                 notification.classList.add('show');
                 
-                // Hide after 2 seconds
                 setTimeout(function() {
                     notification.classList.remove('show');
                 }, 2000);
@@ -106,4 +102,162 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    (function initBackgroundShapes() {
+        var leftSvg = document.getElementById('bgShapesLeft');
+        var rightSvg = document.getElementById('bgShapesRight');
+        if (!leftSvg || !rightSvg || reduceMotion || !('ResizeObserver' in window)) return;
+
+        var CELL = 56;
+        var SCALE = 0.3;
+        var MIN_INTERVAL = 1400;
+        var MAX_INTERVAL = 4200;
+        var FADE_MS = 500;
+
+        var svgNS = 'http://www.w3.org/2000/svg';
+        var weightedTypes = [1, 2, 3, 4, 5, 6, 6, 6, 6, 6, 7, 7, 7];
+
+        function buildShape(type) {
+            var el;
+            switch (type) {
+                case 1:
+                    el = document.createElementNS(svgNS, 'circle');
+                    el.setAttribute('class', 'bgs-fill');
+                    el.setAttribute('cx', '50');
+                    el.setAttribute('cy', '50');
+                    el.setAttribute('r', '9.44');
+                    return el;
+                case 2:
+                    el = document.createElementNS(svgNS, 'g');
+                    el.setAttribute('class', 'bgs-stroke');
+                    [25, 50, 75].forEach(function(y) {
+                        var line = document.createElementNS(svgNS, 'line');
+                        line.setAttribute('x1', '25');
+                        line.setAttribute('x2', '75');
+                        line.setAttribute('y1', y);
+                        line.setAttribute('y2', y);
+                        el.appendChild(line);
+                    });
+                    return el;
+                case 3:
+                    el = document.createElementNS(svgNS, 'g');
+                    el.setAttribute('class', 'bgs-stroke');
+                    [[25, 25, 75, 75], [25, 75, 75, 25]].forEach(function(c) {
+                        var line = document.createElementNS(svgNS, 'line');
+                        line.setAttribute('x1', c[0]);
+                        line.setAttribute('y1', c[1]);
+                        line.setAttribute('x2', c[2]);
+                        line.setAttribute('y2', c[3]);
+                        el.appendChild(line);
+                    });
+                    return el;
+                case 4:
+                    el = document.createElementNS(svgNS, 'rect');
+                    el.setAttribute('class', 'bgs-stroke');
+                    el.setAttribute('x', '25');
+                    el.setAttribute('y', '25');
+                    el.setAttribute('width', '50');
+                    el.setAttribute('height', '50');
+                    return el;
+                case 5:
+                    el = document.createElementNS(svgNS, 'line');
+                    el.setAttribute('class', 'bgs-stroke');
+                    el.setAttribute('x1', '25');
+                    el.setAttribute('y1', '75');
+                    el.setAttribute('x2', '75');
+                    el.setAttribute('y2', '25');
+                    return el;
+                case 7:
+                    el = document.createElementNS(svgNS, 'rect');
+                    el.setAttribute('class', 'bgs-panel');
+                    el.setAttribute('x', '12.5');
+                    el.setAttribute('y', '12.5');
+                    el.setAttribute('width', '75');
+                    el.setAttribute('height', '75');
+                    return el;
+                default:
+                    return null;
+            }
+        }
+
+        function makeCell(x, y, index) {
+            var g = document.createElementNS(svgNS, 'g');
+            g.setAttribute('transform', 'translate(' + x + ' ' + y + ')');
+            var inner = document.createElementNS(svgNS, 'g');
+            inner.setAttribute('class', 'bgs-cell-inner');
+            inner.setAttribute('transform', 'scale(' + SCALE + ')');
+            g.appendChild(inner);
+
+            var timeoutId;
+
+            function paint() {
+                var type = weightedTypes[Math.floor(Math.random() * weightedTypes.length)];
+                var shape = buildShape(type);
+                inner.innerHTML = '';
+                if (shape) inner.appendChild(shape);
+            }
+
+            function scheduleNext() {
+                var delay = MIN_INTERVAL + Math.random() * (MAX_INTERVAL - MIN_INTERVAL);
+                timeoutId = setTimeout(function() {
+                    inner.classList.remove('bgs-visible');
+                    timeoutId = setTimeout(function() {
+                        paint();
+                        inner.classList.add('bgs-visible');
+                        scheduleNext();
+                    }, FADE_MS);
+                }, delay);
+            }
+
+            paint();
+            var entranceDelay = Math.min(index * 18, 1200) + Math.random() * 260;
+            timeoutId = setTimeout(function() {
+                inner.classList.add('bgs-visible');
+                scheduleNext();
+            }, entranceDelay);
+
+            g._stop = function() { clearTimeout(timeoutId); };
+            return g;
+        }
+
+        function fillSvg(svg, width, height, liveCells, nearCenterAtZero) {
+            liveCells.forEach(function(g) { g._stop(); });
+            liveCells.length = 0;
+            svg.innerHTML = '';
+
+            if (width < CELL || height < CELL) return;
+
+            svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+            svg.setAttribute('preserveAspectRatio', 'none');
+
+            var border = CELL * 0.5;
+            var index = 0;
+            for (var x = border; x < width - border; x += CELL) {
+                var distFromCenter = nearCenterAtZero ? (x / width) : ((width - x) / width);
+                for (var y = border; y < height - border; y += CELL) {
+                    if (Math.random() > distFromCenter) continue;
+                    var cell = makeCell(x, y, index);
+                    svg.appendChild(cell);
+                    liveCells.push(cell);
+                    index++;
+                }
+            }
+        }
+
+        var leftCells = [];
+        var rightCells = [];
+        var pending;
+
+        function rebuild() {
+            clearTimeout(pending);
+            pending = setTimeout(function() {
+                fillSvg(leftSvg, leftSvg.clientWidth, leftSvg.clientHeight, leftCells, false);
+                fillSvg(rightSvg, rightSvg.clientWidth, rightSvg.clientHeight, rightCells, true);
+            }, 250);
+        }
+
+        var ro = new ResizeObserver(rebuild);
+        ro.observe(leftSvg);
+        ro.observe(rightSvg);
+    })();
 });
