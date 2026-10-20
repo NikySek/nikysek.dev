@@ -210,7 +210,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             paint();
-            var entranceDelay = Math.min(index * 18, 1200) + Math.random() * 260;
+            var entranceDelay = index * 90 + Math.random() * 260;
             timeoutId = setTimeout(function() {
                 inner.classList.add('bgs-visible');
                 scheduleNext();
@@ -220,28 +220,30 @@ document.addEventListener('DOMContentLoaded', function() {
             return g;
         }
 
-        function fillSvg(svg, width, height, liveCells, nearCenterAtZero) {
+        function fillSvg(svg, width, height, liveCells, nearCenterAtZero, reverse) {
             liveCells.forEach(function(g) { g._stop(); });
             liveCells.length = 0;
             svg.innerHTML = '';
-
+        
             if (width < CELL || height < CELL) return;
-
+        
             svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
             svg.setAttribute('preserveAspectRatio', 'none');
-
+        
             var border = CELL * 0.5;
-            var index = 0;
-            for (var x = border; x < width - border; x += CELL) {
+            var xs = [];
+            for (var x = border; x < width - border; x += CELL) xs.push(x);
+            if (reverse) xs.reverse();
+        
+            xs.forEach(function(x, colIndex) {
                 var distFromCenter = nearCenterAtZero ? (x / width) : ((width - x) / width);
                 for (var y = border; y < height - border; y += CELL) {
                     if (Math.random() > distFromCenter) continue;
-                    var cell = makeCell(x, y, index);
+                    var cell = makeCell(x, y, colIndex);
                     svg.appendChild(cell);
                     liveCells.push(cell);
-                    index++;
                 }
-            }
+            });
         }
 
         var leftCells = [];
@@ -251,8 +253,8 @@ document.addEventListener('DOMContentLoaded', function() {
         function rebuild() {
             clearTimeout(pending);
             pending = setTimeout(function() {
-                fillSvg(leftSvg, leftSvg.clientWidth, leftSvg.clientHeight, leftCells, false);
-                fillSvg(rightSvg, rightSvg.clientWidth, rightSvg.clientHeight, rightCells, true);
+                fillSvg(leftSvg, leftSvg.clientWidth, leftSvg.clientHeight, leftCells, false, false);
+                fillSvg(rightSvg, rightSvg.clientWidth, rightSvg.clientHeight, rightCells, true, true);
             }, 250);
         }
 
