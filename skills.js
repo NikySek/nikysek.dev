@@ -33,5 +33,12 @@ const skills = [
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/rust/rust-original.svg",
         color: "#DEA584",
         description: "SYSTEMS PROGRAMMING"
+    },
+    {
+        name: "SQLite",
+        level: 56,
+        logo: "https://commons.wikimedia.org/wiki/File:Sqlite-square-icon.svg",
+        color: "#90D4F4",
+        description: "DATA STORAGE"
     }
 ];
