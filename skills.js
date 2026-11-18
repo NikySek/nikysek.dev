@@ -37,7 +37,7 @@ const skills = [
     {
         name: "SQLite",
         level: 56,
-        logo: "https://commons.wikimedia.org/wiki/File:Sqlite-square-icon.svg",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/sqlite/sqlite-original.svg",
         color: "#90D4F4",
         description: "DATA STORAGE"
     }
