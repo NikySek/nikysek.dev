@@ -1,201 +1,130 @@
+
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#0c0c0f">
-    <meta name="description" content="nikysek — Discord bot & backend developer. Ticket systems, OAuth2 verification, and audit logging built for real, active Discord communities.">
-    <title>nikysek develops</title>
-    <link rel="icon" type="favicon" href="./logoish.png">
+    <meta name="theme-color" content="#000000">
+    <title>NikySek — Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    
-    <div class="bg-shapes" aria-hidden="true">
-        <svg id="bgShapesLeft" class="bg-shapes-svg bg-shapes-svg--left"></svg>
-        <svg id="bgShapesRight" class="bg-shapes-svg bg-shapes-svg--right"></svg>
-    </div>
+<div class="container">
+    <nav>
+        <a href="#" class="logo">nikysek<span>.dev</span></a>
+        <div class="nav-right">
+            <div class="nav-links">
+                <a href="#about" data-i18n="navAbout">About</a>
+                <a href="#skills" data-i18n="navSkills">Skills</a>
+                <a href="#focus" data-i18n="navFocus">Focus</a>
+                <a href="#contact" data-i18n="navContact">Contact</a>
+            </div>
+            <div class="language-switch">
+                <button class="active" data-lang="en">EN</button>
+                <button data-lang="cs">CZ</button>
+            </div>
+        </div>
+    </nav>
 
-    <a class="skip-link" href="#main">Skip to content</a>
-
-    <header class="nav">
-        <div class="nav-inner">
-            <a href="/" class="nav-logo">
-                nikysek.dev
+    <header class="hero">
+        <div class="status">
+            <span class="status-dot"></span>
+            <span data-i18n="status">DEVELOPER PORTFOLIO</span>
+        </div>
+        <h1>Building<br><span>things with</span><br>code<span>.</span></h1>
+        <p class="hero-description" data-i18n="heroDesc">Developer exploring the world of programming, creating digital experiences and turning ideas into reality.</p>
+        <div class="hero-actions">
+            <a href="#skills" class="button button-primary">
+                <span data-i18n="explore">Explore my skills</span>
+                <span class="arrow">↗</span>
             </a>
-            <nav class="nav-links">
-                <a href="#work">Work</a>
-                <a href="#stack">Stack</a>
-                <a href="#contact" class="nav-cta">Contact</a>
-            </nav>
+            <a href="#about" class="button button-secondary" data-i18n="more">More about me</a>
         </div>
     </header>
 
-    <main id="main">
-
-        <section class="hero">
-            <div class="hero-inner">
-                <div class="terminal">
-                    <div class="terminal-bar">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                        <span class="terminal-title">nikysek@dev:~</span>
-                    </div>
-                    <div class="terminal-body" id="terminal-body"></div>
-                </div>
-
-                <div>
-                    <h1 class="hero-title hero-reveal">I build the backend Discord communities run on.</h1>
-                    <p class="hero-sub hero-reveal">Ticket systems, OAuth2 verification, and audit logs that hold up in real, active servers — not demos.</p>
-                </div>
-
-                <div class="hero-stats hero-reveal">
-                    <div class="stat">
-                        <span class="stat-num">3</span>
-                        <span class="stat-label">Bots shipped</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-num">15+</span>
-                        <span class="stat-label">Events audited</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-num">OAuth2</span>
-                        <span class="stat-label">Verification flow</span>
-                    </div>
-                </div>
+    <section class="section" id="about">
+        <div class="section-heading">
+            <div>
+                <div class="eyebrow">01 / ABOUT</div>
+                <h2 data-i18n="aboutTitle">A little about me.</h2>
             </div>
-        </section>
-
-        <section class="about" id="stack">
-            <div class="section-inner">
-                <p class="eyebrow reveal">// loaded modules</p>
-                <h2 class="section-title reveal">What's under the hood</h2>
-                <p class="about-bio reveal">I build the systems that keep Discord communities running smoothly — ticket queues that route to the right person, verification flows that keep bad actors out, and logging that actually tells you what happened.</p>
-                <ul class="stack-grid reveal">
-                    <li>Python</li>
-                    <li>discord.py</li>
-                    <li>Flask</li>
-                    <li>Discord OAuth2</li>
-                    <li>Slash Commands</li>
-                    <li>Modals &amp; Views</li>
-                    <li>Cogs Architecture</li>
-                    <li>Webhooks</li>
-                    <li>JSON Persistence</li>
-                    <li>Event-driven Logging</li>
-                </ul>
+            <span class="section-number">[ 001 ]</span>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <p data-i18n="aboutText1">I'm a developer passionate about technology, programming and building things from scratch.</p>
+                <p data-i18n="aboutText2">From frontend development to low-level programming, I'm always looking for new challenges.</p>
             </div>
-        </section>
-
-        <section class="work" id="work">
-            <div class="section-inner">
-                <p class="eyebrow reveal">// work</p>
-                <h2 class="section-title reveal">Shipped, not just scripted</h2>
-
-                <div class="projects">
-                    <article class="project reveal">
-                        <div class="project-info">
-                            <span class="project-tag">Support system</span>
-                            <h3>Ticket &amp; Moderation Bot</h3>
-                            <p>A structured support system for a game-server hosting community. Members open tickets through category buttons — server issues, upgrades, reports, business inquiries. The bot routes them to appropriate staff channels with context.</p>
-                            <ul class="tech-tags">
-                                <li>Python</li>
-                                <li>discord.py</li>
-                                <li>Slash Commands</li>
-                                <li>Modals</li>
-                            </ul>
-                        </div>
-                        <div class="project-visual">
-                            <img src="14720261027.png?v=1" alt="Ticket support UI" style="max-width:100%; border-radius:8px; box-shadow: 0 8px 24px rgba(0,0,0,0.0);">
-                        </div>
-                    </article>
-
-                    <article class="project reverse reveal">
-                        <div class="project-info">
-                            <span class="project-tag">Web + OAuth2</span>
-                            <h3>Discord Verification Portal</h3>
-                            <p>A two-step verification flow: members request a one-time code from the bot, then confirm their identity on a branded web page by logging in with Discord OAuth2. On success, they get verified role.</p>
-                            <ul class="tech-tags">
-                                <li>Python</li>
-                                <li>Flask</li>
-                                <li>Discord OAuth2</li>
-                                <li>Sessions</li>
-                            </ul>
-                        </div>
-                        <div class="project-visual">
-                            <img src="14720261026.png?v=1" alt="Verification UI" style="max-width:100%; border-radius:8px; box-shadow: 0 8px 24px rgba(0,0,0,0.0);">
-                        </div>
-                    </article>
-
-                    <article class="project reveal">
-                        <div class="project-info">
-                            <span class="project-tag">Architecture</span>
-                            <h3>Modular Bot Framework</h3>
-                            <p>A rebuild of the verification system on discord.py's cogs pattern, where every feature loads as its own module at startup. Added a welcome flow — auto-role plus a greeting message in a dedicated channel.</p>
-                            <ul class="tech-tags">
-                                <li>discord.py Cogs</li>
-                                <li>Event-driven design</li>
-                                <li>Flask</li>
-                            </ul>
-                        </div>
-                        <div class="project-visual">
-                            <div class="mock-terminal">
-                                <p><span class="ts">10:42:01</span><span class="ok">[OK]</span> loaded module: verify</p>
-                                <p><span class="ts">10:42:01</span><span class="ok">[OK]</span> loaded module: welcome</p>
-                                <p><span class="ts">10:42:01</span><span class="ok">[OK]</span> loaded module: audit</p>
-                                <p><span class="ts">10:43:15</span> [IN] member joined</p>
-                                <p><span class="ts">10:44:02</span> [UP] role updated</p>
-                                <p><span class="ts">10:45:18</span><span class="danger-ic">[RM]</span> message deleted</p>
-                            </div>
-                        </div>
-                    </article>
-                </div>
+            <div class="about-details">
+                <div class="detail"><span data-i18n="detailName">Name</span><span>NikySek</span></div>
+                <div class="detail"><span data-i18n="detailRole">Role</span><span>Developer</span></div>
+                <div class="detail"><span data-i18n="detailWebsite">Website</span><span>nikysek.dev</span></div>
+                <div class="detail"><span data-i18n="detailInterests">Interests</span><span>Code / Tech / Web</span></div>
+                <div class="detail"><span data-i18n="detailStatus">Status</span><span data-i18n="detailLearning">Always learning</span></div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section class="contact" id="contact">
-            <div class="section-inner">
-                <p class="eyebrow reveal">// connect</p>
-                <h2 class="section-title reveal">Let's build something</h2>
-                <p class="contact-sub reveal">Have a community that needs a custom bot, a verification flow, or better moderation tooling? I'm around.</p>
-                <div class="contact-links reveal">
-                    <a href="mailto:me@nikysek.dev" class="contact-card">
-                        <span class="contact-icon">@</span>
-                        <span class="contact-text">
-                            <span class="contact-label">Email</span>
-                            <span class="contact-value">me@nikysek.dev</span>
-                        </span>
-                    </a>
-                    <a href="https://github.com/nikysek" class="contact-card">
-                        <span class="contact-icon">&lt;/&gt;</span>
-                        <span class="contact-text">
-                            <span class="contact-label">GitHub</span>
-                            <span class="contact-value">github.com/nikysek</span>
-                        </span>
-                    </a>
-                    <button class="contact-card" id="discord-copy">
-                        <span class="contact-icon">#</span>
-                        <span class="contact-text">
-                            <span class="contact-label">Discord</span>
-                            <span class="contact-value discord-value">@nikysek</span>
-                        </span>
-                    </button>
-                </div>
+    <section class="section" id="skills">
+        <div class="section-heading">
+            <div>
+                <div class="eyebrow">02 / TECHNOLOGIES</div>
+                <h2 data-i18n="skillsTitle">My tech stack.</h2>
             </div>
-        </section>
+            <span class="section-number">[ 002 ]</span>
+        </div>
+        <div class="skills-grid" id="skillsGrid"></div>
+        <p class="stack-footer" data-i18n="stackFooter">CONSTANTLY LEARNING. ALWAYS IMPROVING.</p>
+    </section>
 
-    </main>
+    <section class="section" id="focus">
+        <div class="section-heading">
+            <div>
+                <div class="eyebrow">03 / WHAT I DO</div>
+                <h2 data-i18n="focusTitle">Areas of interest.</h2>
+            </div>
+            <span class="section-number">[ 003 ]</span>
+        </div>
+        <div class="focus-grid">
+            <article class="focus-card">
+                <span class="focus-number">01 — WEB</span>
+                <h3 data-i18n="focusWeb">Web Development</h3>
+                <p data-i18n="focusWebDesc">Creating websites and interactive experiences.</p>
+            </article>
+            <article class="focus-card">
+                <span class="focus-number">02 — SOFTWARE</span>
+                <h3 data-i18n="focusSoftware">Software Development</h3>
+                <p data-i18n="focusSoftwareDesc">Exploring programming languages and building applications.</p>
+            </article>
+            <article class="focus-card">
+                <span class="focus-number">03 — LEARNING</span>
+                <h3 data-i18n="focusLearning">Continuous Learning</h3>
+                <p data-i18n="focusLearningDesc">Experimenting with new technologies and expanding my knowledge.</p>
+            </article>
+        </div>
+    </section>
 
-    <footer class="footer">
-        <p>// nikysek.dev — built 2026</p>
+    <section class="section" id="contact">
+        <div class="contact">
+            <div class="eyebrow">04 / GET IN TOUCH</div>
+            <h2 data-i18n="contactTitle">Let's build something.</h2>
+            <p data-i18n="contactDesc">Have an interesting idea or just want to connect?</p>
+            <a href="/" class="button button-primary">nikysek.dev ↗</a>
+        </div>
+    </section>
+
+    <footer>
+        <a href="#" class="logo">nikysek<span>.dev</span></a>
+        <span>© <span id="year"></span> NikySek</span>
+        <span data-i18n="footerText">BUILT WITH CODE.</span>
     </footer>
-    
-    <!-- Notification -->
-    <div id="copy-notification" class="copy-notification">Copied to clipboard!</div>
+</div>
 
-    <script src="script.js"></script>
+<script src="js/skills.js"></script>
+<script src="js/translations.js"></script>
+<script src="js/main.js"></script>
 </body>
 </html>
