@@ -28,7 +28,14 @@ const translations = {
         focusLearningDesc: "Experimenting with new technologies and continuously expanding my knowledge.",
         contactTitle: "Let's build something.",
         contactDesc: "Have an interesting idea or just want to connect?",
-        footerText: "BUILT WITH CODE."
+        footerText: "BUILT WITH CODE.",
+        contactHeroDesc: "Have a project in mind, an interesting idea or just want to say hello? Feel free to reach out.",
+        contactEmailDesc: "Send me an email.",
+        contactGithubDesc: "Check out my projects and code.",
+        contactDiscordDesc: "Connect with me on Discord.",
+        contactBottomTitle: "Have something in mind?",
+        contactBottomDesc: "I'm always open to interesting ideas and conversations.",
+        contactButton: "Send me an email"
     },
     cs: {
         navAbout: "O mně",
@@ -59,6 +66,13 @@ const translations = {
         focusLearningDesc: "Experimentování s novými technologiemi a neustálé rozšiřování znalostí.",
         contactTitle: "Pojďme něco vytvořit.",
         contactDesc: "Máš zajímavý nápad nebo se chceš jen spojit?",
-        footerText: "VYTVOŘENO POMOCÍ KÓDU."
+        footerText: "VYTVOŘENO POMOCÍ KÓDU.",
+        contactHeroDesc: "Máš v hlavě nějaký projekt, zajímavý nápad nebo mě chceš jen pozdravit? Klidně se ozvi.",
+        contactEmailDesc: "Napiš mi e-mail.",
+        contactGithubDesc: "Podívej se na mé projekty a kód.",
+        contactDiscordDesc: "Spoj se se mnou na Discordu.",
+        contactBottomTitle: "Máš něco v plánu?",
+        contactBottomDesc: "Vždy rád proberu zajímavé nápady a nové možnosti.",
+        contactButton: "Napiš mi e-mail"
     }
 };
