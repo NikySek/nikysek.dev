@@ -29,13 +29,11 @@ const translations = {
         contactTitle: "Let's build something.",
         contactDesc: "Have an interesting idea or just want to connect?",
         footerText: "BUILT WITH CODE.",
-        contactHeroDesc: "Have a project in mind, an interesting idea or just want to say hello? Feel free to reach out.",
-        contactEmailDesc: "Send me an email.",
-        contactGithubDesc: "Check out my projects and code.",
-        contactDiscordDesc: "Connect with me on Discord.",
-        contactBottomTitle: "Have something in mind?",
-        contactBottomDesc: "I'm always open to interesting ideas and conversations.",
-        contactButton: "Send me an email"
+        contactTitle: "Get in touch",
+        contactDesc: "Feel free to reach out through any of these platforms.",
+        contactGithubDesc: "Check out my projects",
+        contactEmailDesc: "Send me an email",
+        contactDiscordDesc: "Let's connect on Discord"
     },
     cs: {
         navAbout: "O mně",
@@ -67,12 +65,10 @@ const translations = {
         contactTitle: "Pojďme něco vytvořit.",
         contactDesc: "Máš zajímavý nápad nebo se chceš jen spojit?",
         footerText: "VYTVOŘENO POMOCÍ KÓDU.",
-        contactHeroDesc: "Máš v hlavě nějaký projekt, zajímavý nápad nebo mě chceš jen pozdravit? Klidně se ozvi.",
-        contactEmailDesc: "Napiš mi e-mail.",
-        contactGithubDesc: "Podívej se na mé projekty a kód.",
-        contactDiscordDesc: "Spoj se se mnou na Discordu.",
-        contactBottomTitle: "Máš něco v plánu?",
-        contactBottomDesc: "Vždy rád proberu zajímavé nápady a nové možnosti.",
-        contactButton: "Napiš mi e-mail"
+        contactTitle: "Kontakt",
+        contactDesc: "Neváhej mě kontaktovat přes některou z těchto platforem.",
+        contactGithubDesc: "Podívej se na mé projekty",
+        contactEmailDesc: "Napiš mi e-mail",
+        contactDiscordDesc: "Spojme se na Discordu"
     }
 };
