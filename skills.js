@@ -8,7 +8,7 @@ const skills = [
     },
     {
         name: "CSS",
-        level: 73,
+        level: 34,
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg",
         color: "#1572B6",
         description: "STYLING & DESIGN"
